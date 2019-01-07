@@ -1,3 +1,4 @@
+
 # Contacts Project
 
 This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
@@ -22,3 +23,4 @@ If you feel like there's a major problem, please open an issue to discuss the pr
 ## License
 
 MIT
+

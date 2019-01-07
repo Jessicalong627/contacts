@@ -36,20 +36,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route exact path='/' render={() => (
-          <ListContacts
-            contacts={this.state.contacts}
-            onDeleteContact={this.removeContact}
-          />
-        )} />
-        <Route path='/create' render={({ history }) => (
-          <CreateContact
-            onCreateContact={(contact) => {
-              this.createContact(contact)
-              history.push('/')
-            }}
-          />
-        )} />
+        initial commit
+
       </div>
     )
   }
