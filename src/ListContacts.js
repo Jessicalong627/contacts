@@ -1,4 +1,5 @@
 import React from 'react'
+import  { Link } from 'react-router-dom'
 
 class ListContacts extends React.Component {
   state = {
@@ -35,6 +36,10 @@ class ListContacts extends React.Component {
             value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
+          <Link
+            to="/create"
+            className="add-contact">
+            Add Contact </Link>
         </div>
 
         {showingContact.length !== contacts.length && (
@@ -44,12 +49,12 @@ class ListContacts extends React.Component {
 
         <ol className="contact-list">
            {showingContact.map(contact => (
-            <li key={contact.id} className="contact-list-item">
+            <li key={contact.name} className="contact-list-item">
               <div className="contact-avatar" style={{
                 backgroundImage:`url(${contact.avatarURL})`
               }}> </div>
               <div className="contact-details"> <p>{contact.name}</p>
-               <p> {contact.handle} </p>
+               <p> {contact.email} </p>
               </div>
               <button  onClick={() => onDeleteContact(contact)}
               className="contact-remove">
