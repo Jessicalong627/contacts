@@ -15,24 +15,23 @@ class ListContacts extends React.Component {
   clearQuery = () => {
     this.updateQuery('')
   }
-
-  render(){
+  render() {
     const { query } = this.state
     const { contacts, onDeleteContact } = this.props
 
-    const showingContact = query === ''
-    ? contacts
-    : contacts.filter((c) => (
-      c.name.toLowerCase().includes(query.toLowerCase())
-    ))
+    const showingContacts = query === ''
+      ? contacts
+      : contacts.filter((c) => (
+          c.name.toLowerCase().includes(query.toLowerCase())
+        ))
 
     return (
-      <div className="list-contacts">
-        <div className="list-contacts-top">
+      <div className='list-contacts'>
+        <div className='list-contacts-top'>
           <input
-            className="search-contacts"
-            type="text"
-            placeholder="Search Contacts"
+            className='search-contacts'
+            type='text'
+            placeholder='Search Contacts'
             value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
