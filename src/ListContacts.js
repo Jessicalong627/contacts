@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import  { Link } from 'react-router-dom'
 
-class ListContacts extends Component {
-  static propTypes = {
-    contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired,
-  }
+class ListContacts extends React.Component {
   state = {
     query: ''
   }
+
   updateQuery = (query) => {
     this.setState(() => ({
       query: query.trim()
     }))
   }
+
   clearQuery = () => {
     this.updateQuery('')
   }
@@ -39,37 +36,30 @@ class ListContacts extends Component {
             onChange={(event) => this.updateQuery(event.target.value)}
           />
           <Link
-            to='/create'
-            className='add-contact'
-          >Add Contact</Link>
+            to="/create"
+            className="add-contact">
+            Add Contact </Link>
         </div>
 
-        {showingContacts.length !== contacts.length && (
-          <div className='showing-contacts'>
-            <span>Now showing {showingContacts.length} of {contacts.length}</span>
-            <button onClick={this.clearQuery}>Show all</button>
-          </div>
+        {showingContact.length !== contacts.length && (
+          <div className='showing-contacts'> <span> Now Showing {showingContact.length} of {contacts.length} </span>
+           <button onClick={this.clearQuery}> Show all </button> </div>
         )}
 
-        <ol className='contact-list'>
-          {showingContacts.map((contact) => (
-            <li key={contact.id} className='contact-list-item'>
-              <div
-                className='contact-avatar'
-                style={{
-                  backgroundImage: `url(${contact.avatarURL})`
-                }}
-              ></div>
-              <div className='contact-details'>
-                <p>{contact.name}</p>
-                <p>{contact.handle}</p>
+        <ol className="contact-list">
+           {showingContact.map(contact => (
+            <li key={contact.name} className="contact-list-item">
+              <div className="contact-avatar" style={{
+                backgroundImage:`url(${contact.avatarURL})`
+              }}> </div>
+              <div className="contact-details"> <p>{contact.name}</p>
+               <p> {contact.email} </p>
               </div>
-              <button
-                onClick={() => onDeleteContact(contact)}
-                className='contact-remove'>
-                  Remove
+              <button  onClick={() => onDeleteContact(contact)}
+              className="contact-remove">
+              Remove
               </button>
-            </li>
+             </li>
           ))}
         </ol>
       </div>
